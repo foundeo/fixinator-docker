@@ -16,6 +16,7 @@ jobs:
     - name: Build and Publish the Docker image
       run: |
         docker build . --file Dockerfile --tag fixinator
+        docker run -it -e FIXINATOR_API_KEY=${{ secrets.FIXINATOR_API_KEY }} -e CI=1 fixinator box fixinator path=/root/.CommandBox/cfml/modules/fixinator/box.json
         echo "${{ secrets.DOCKER_PASS }}" | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin 
         docker tag fixinator foundeo/fixinator:latest
         docker push foundeo/fixinator:latest
