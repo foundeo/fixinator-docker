@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ master ]
+  
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build and Publish the Docker image
+      run: |
+        docker build . --file Dockerfile --tag fixinator
+        echo "${{ secrets.DOCKER_PASS }}" | docker login --username ${{ secrets.DOCKER_USER }} --password-stdin 
+        docker tag fixinator foundeo/fixinator:latest
+        docker push foundeo/fixinator:latest
