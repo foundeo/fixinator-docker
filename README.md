@@ -10,3 +10,6 @@ Run the following on any computer that has docker installed:
 
 In this case the `-v /local/folder:/code` is mounting the local folder `/local/folder` to the path `/code` in the container, we then pass `/code` into the `path` argument of fixinator to tell it what code to scan.
 
+## Version Tags
+
+You can use `latest` to get the latest build. There are also version tags published on a monthly basis, eg `2021.07`
