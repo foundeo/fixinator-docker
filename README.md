@@ -12,4 +12,4 @@ In this case the `-v /local/folder:/code` is mounting the local folder `/local/f
 
 ## Version Tags
 
-You can use `latest` to get the latest build. There are also version tags published on a monthly basis, eg `2021.07`
+You can use `latest` to get the latest build. There are also version tags published on a monthly basis, eg `v2.0.3`
